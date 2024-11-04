@@ -1,0 +1,43 @@
+/* Center the SVG frog on the page */
+body, html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Button styling */
+#spinButton {
+    position: absolute;
+    top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+/* Frog SVG styling */
+#frog {
+    width: 200px;
+    height: 200px;
+    transition: transform 0.3s;
+}
+
+/* Spinning animation */
+.spinning {
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spinning Frog</title>
+  <style>
+    /* Center the SVG frog on the page */
+    body, html {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Button styling */
+    #spinButton {
+      position: absolute;
+      top: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 10;
+    }
+
+    /* Frog SVG styling */
+    #frog {
+      width: 200px;
+      height: 200px;
+      transition: transform 0.3s;
+    }
+
+    /* Spinning animation */
+    .spinning {
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Button to start/stop spinning the frog -->
+  <button id="spinButton">Spin the Frog!</button>
+
+  <!-- SVG of Frog (initially not spinning) -->
+  <svg id="frog" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Frog Body -->
+    <circle cx="100" cy="100" r="50" fill="green" />
+    
+    <!-- Frog Eyes -->
+    <circle cx="80" cy="80" r="10" fill="white" />
+    <circle cx="120" cy="80" r="10" fill="white" />
+    
+    <!-- Frog Eye Pupils -->
+    <circle cx="80" cy="80" r="5" fill="black" />
+    <circle cx="120" cy="80" r="5" fill="black" />
+    
+    <!-- Frog Mouth -->
+    <path d="M80,120 Q100,140 120,120" stroke="black" stroke-width="3" fill="transparent" />
+  </svg>
+
+  <script>
+    // JavaScript to toggle the spinning class on the frog
+    const frog = document.getElementById("frog");
+    const button = document.getElementById("spinButton");
+
+    button.addEventListener("click", () => {
+      frog.classList.toggle("spinning");
+    });
+  </script>
+</body>
+</html>
